@@ -42,7 +42,7 @@ resource "google_container_cluster" "primary" {
       for_each = var.cluster_autoscaling.enabled ? [1] : []
 
       content {
-        service_account = local.service_account
+        service_account = var.service_account
         oauth_scopes    = local.node_pools_oauth_scopes["all"]
 
         management {
@@ -169,7 +169,7 @@ resource "google_container_node_pool" "pools" {
     service_account = lookup(
       each.value,
       "service_account",
-      local.service_account,
+      var.service_account,
     )
     preemptible = lookup(each.value, "preemptible", false)
     spot        = lookup(each.value, "spot", false)
