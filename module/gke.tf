@@ -178,9 +178,8 @@ resource "google_container_node_pool" "pools" {
       local.node_pools_oauth_scopes["all"],
       local.node_pools_oauth_scopes[each.value["name"]],
     )
-
+  }
   lifecycle {
     ignore_changes = [initial_node_count]
-  }
   }
 }
