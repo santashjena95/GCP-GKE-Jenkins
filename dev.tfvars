@@ -1,0 +1,15 @@
+project_id                = "inner-root-434608-t5"
+cluster_name              = "devopsproject"
+regional                  = false
+region                    = "us-east4"
+network                   = "devops-project"
+subnetwork                = "devops-project-subnet"
+ip_range_pods             = "pods-ip-range"
+ip_range_services         = "services-ip-range"
+service_account           = "909656124240-compute@developer.gserviceaccount.com"
+enable_private_endpoint   = true
+enable_private_nodes      = true
+master_ipv4_cidr_block    = "172.16.0.0/28"
+default_max_pods_per_node = 20
+remove_default_node_pool  = true
+deletion_protection       = false

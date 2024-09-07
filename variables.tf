@@ -23,7 +23,7 @@ variable "regional" {
 variable "region" {
   type        = string
   description = "The region to host the cluster in (optional if zonal cluster / required if regional)"
-  default     = null
+  default     = "us-east4"
 }
 
 variable "zones" {
@@ -147,17 +147,22 @@ variable "cluster_ipv4_cidr" {
   description = "The IP address range of the kubernetes pods in this cluster. Default is an automatically assigned CIDR."
 }
 
+variable "deploy_using_private_endpoint" {
+  type        = bool
+  description = "A toggle for Terraform and kubectl to connect to the master's internal IP address during deployment."
+  default     = true
+}
 
 variable "enable_private_endpoint" {
   type        = bool
   description = "Whether the master's internal IP address is used as the cluster endpoint"
-  default     = false
+  default     = true
 }
 
 variable "enable_private_nodes" {
   type        = bool
   description = "Whether nodes have internal IP addresses only"
-  default     = false
+  default     = true
 }
 
 variable "master_ipv4_cidr_block" {
@@ -176,7 +181,7 @@ variable "master_global_access_enabled" {
 variable "network_policy" {
   type        = bool
   description = "Enable network policy addon"
-  default     = false
+  default     = true
 }
 
 
@@ -190,7 +195,7 @@ variable "network_policy_provider" {
 variable "enable_binary_authorization" {
   type        = bool
   description = "Enable BinAuthZ Admission controller"
-  default     = false
+  default     = true
 }
 
 
@@ -209,14 +214,14 @@ variable "initial_node_count" {
 variable "remove_default_node_pool" {
   type        = bool
   description = "Remove default node pool while setting up the cluster"
-  default     = false
+  default     = true
 }
 
 
 variable "default_max_pods_per_node" {
   type        = number
   description = "The maximum number of pods to schedule per node"
-  default     = 110
+  default     = 20
 }
 
 variable "deletion_protection" {
@@ -228,7 +233,7 @@ variable "deletion_protection" {
 variable "non_masquerade_cidrs" {
   type        = list(string)
   description = "List of strings in CIDR notation that specify the IP address ranges that do not use IP masquerading."
-  default     = ["10.0.0.0/24", "172.16.0.0/28", "192.168.0.0/16"]
+  default     = ["10.0.0.0/24", "172.16.0.0/28", "10.1.0.0/24", "10.2.0.0/24"]
 }
 
 variable "ip_masq_resync_interval" {

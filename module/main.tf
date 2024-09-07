@@ -49,6 +49,7 @@ locals {
 
   cluster_output_regional_zones = google_container_cluster.primary.node_locations
   cluster_output_zones          = local.cluster_output_regional_zones
+  cluster_endpoint           = (var.enable_private_nodes && length(google_container_cluster.primary.private_cluster_config) > 0) ? (var.deploy_using_private_endpoint ? google_container_cluster.primary.private_cluster_config[0].private_endpoint : google_container_cluster.primary.private_cluster_config[0].public_endpoint) : google_container_cluster.primary.endpoint
 
   cluster_output_node_pools_names = concat(
     [for np in google_container_node_pool.pools : np.name], [""]
@@ -58,7 +59,7 @@ locals {
     { for np in google_container_node_pool.pools : np.name => np.version }
   )
 
-  
+
   cluster_location = google_container_cluster.primary.location
   cluster_region   = var.regional ? var.region : join("-", slice(split("-", local.cluster_location), 0, 2))
   cluster_zones    = sort(local.cluster_output_zones)
