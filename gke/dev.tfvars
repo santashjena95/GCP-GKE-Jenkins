@@ -1,6 +1,6 @@
 project_id                = "inner-root-434608-t5"
 cluster_name              = "devopsproject"
-regional                  = false
+regional                  = true
 region                    = "us-east4"
 network                   = "devops-project"
 subnetwork                = "devops-project-subnet"
