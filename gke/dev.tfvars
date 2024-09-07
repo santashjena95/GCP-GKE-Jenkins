@@ -13,3 +13,7 @@ master_ipv4_cidr_block    = "172.16.0.0/28"
 default_max_pods_per_node = 20
 remove_default_node_pool  = true
 deletion_protection       = false
+repository_name = ["frontend", "backend"]
+channel_name = "9xm"
+environment  = "dev"
+portfolio_name = "superhit"
