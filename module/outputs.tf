@@ -43,19 +43,9 @@ output "master_authorized_networks_config" {
   value       = google_container_cluster.primary.master_authorized_networks_config
 }
 
-output "network_policy_enabled" {
-  description = "Whether network policy enabled"
-  value       = local.cluster_network_policy_enabled
-}
-
 output "node_pools_names" {
   description = "List of node pools names"
   value       = local.cluster_node_pools_names
-}
-
-output "service_account" {
-  description = "The service account to default running nodes as if not overridden in `node_pools`."
-  value       = local.service_account
 }
 
 output "instance_group_urls" {

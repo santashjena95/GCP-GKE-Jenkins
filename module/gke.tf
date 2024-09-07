@@ -81,7 +81,7 @@ resource "google_container_cluster" "primary" {
       image_type                  = lookup(var.node_pools[0], "image_type", "COS_CONTAINERD")
       machine_type                = lookup(var.node_pools[0], "machine_type", "e2-medium")
       min_cpu_platform            = lookup(var.node_pools[0], "min_cpu_platform", "")
-      service_account = lookup(var.node_pools[0], "service_account", local.service_account)
+      service_account = lookup(var.node_pools[0], "service_account", var.service_account)
     }
   }
 
