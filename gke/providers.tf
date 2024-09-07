@@ -16,7 +16,8 @@ terraform {
       }
     }
     backend "gcs" {
-      name = "value"
+      bucket = "devops-sre-terraform-state-file"
+      prefix = "env/dev"
     }
 }
 
