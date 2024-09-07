@@ -7,7 +7,7 @@ provider "kubernetes" {
 
 module "gke" {
   source  = "../module"
-  version = "~> 32.0"
+
   project_id                = var.project_id
   cluster_name              = var.cluster_name
   regional                  = var.regional
