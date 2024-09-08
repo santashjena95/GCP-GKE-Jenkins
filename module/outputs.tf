@@ -76,5 +76,5 @@ output "endpoint" {
 
 output "cluster_ca_certificate" {
   description = "The CA certificate for the cluster"
-  value       = google_container_cluster.primary.cluster_ca_certificate
+  value       = google_container_cluster.primary.master_auth.0.cluster_ca_certificate
 }
