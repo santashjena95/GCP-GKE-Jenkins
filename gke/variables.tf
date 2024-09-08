@@ -221,7 +221,7 @@ variable "remove_default_node_pool" {
 variable "default_max_pods_per_node" {
   type        = number
   description = "The maximum number of pods to schedule per node"
-  default     = 20
+  default     = 30
 }
 
 variable "deletion_protection" {
@@ -289,7 +289,7 @@ variable "nodepool_mincount" {
 variable "nodepool_maxcount" {
   type        = number
   description = "Maximum count of the K8s Node Pool"
-  default     = 1
+  default     = 2
 }
 
 variable "nodepool_disk_size" {
