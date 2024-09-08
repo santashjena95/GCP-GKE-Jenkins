@@ -8,7 +8,7 @@ resource "google_container_cluster" "primary" {
   description     = var.description
   project         = var.project_id
   location            = local.location
-  node_locations      = local.node_locations
+  node_locations      = ["us-east4-a"]
   cluster_ipv4_cidr   = var.cluster_ipv4_cidr
   remove_default_node_pool = var.remove_default_node_pool
   network             = "projects/${local.network_project_id}/global/networks/${var.network}"
