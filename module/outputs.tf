@@ -73,3 +73,8 @@ output "endpoint" {
     google_container_node_pool.pools,
   ]
 }
+
+output "cluster_ca_certificate" {
+  description = "The CA certificate for the cluster"
+  value       = google_container_cluster.primary.cluster_ca_certificate
+}
