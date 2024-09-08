@@ -233,7 +233,7 @@ variable "deletion_protection" {
 variable "non_masquerade_cidrs" {
   type        = list(string)
   description = "List of strings in CIDR notation that specify the IP address ranges that do not use IP masquerading."
-  default     = ["10.0.0.0/24", "172.16.0.0/28", "192.168.0.0/16"]
+  default     = ["10.0.0.0/24", "172.16.0.0/28", "10.3.0.0/20", "10.2.0.0/24"]
 }
 
 variable "ip_masq_resync_interval" {
