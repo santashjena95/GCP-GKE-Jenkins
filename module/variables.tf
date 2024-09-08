@@ -82,7 +82,7 @@ variable "node_pools" {
 
   default = [
     {
-      name = "default-node-pool"
+      name = "workerpool"
     },
   ]
 }
@@ -126,7 +126,7 @@ variable "node_pools_oauth_scopes" {
   # Default is being set in variables_defaults.tf
   default = {
     all               = ["https://www.googleapis.com/auth/cloud-platform"]
-    default-node-pool = []
+    workerpool = []
   }
 }
 
