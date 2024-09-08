@@ -1,7 +1,7 @@
 data "google_client_config" "default" {}
 
 provider "kubernetes" {
-  host                   = "http://${module.gke.endpoint}"
+  host                   = "https://${module.gke.endpoint}"
   token                  = data.google_client_config.default.access_token
 }
 
