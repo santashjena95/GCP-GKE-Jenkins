@@ -2,9 +2,13 @@
 
 Repository for creating Google Kubernetes Engine with IAC (Terraform).
 
+## Necessary command for running kubectl in a server
+
 sudo apt-get install google-cloud-cli-gke-gcloud-auth-plugin
 
 gcloud container clusters get-credentials devopsproject --region us-east4 --project gcp-proect-id
+
+## Argo CD setup
 
 kubectl create namespace argocd
 
